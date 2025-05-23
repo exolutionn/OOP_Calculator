@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.MainPage">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="CalculatorButtonStyle">
+            <Setter Property="BackgroundColor" Value="#393E46"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal"/>
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#272829"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#1A1A1D"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="3*,7*" Margin="3">
+        <VerticalStackLayout Grid.Row="0" Spacing="0" Padding="0">
+            <!-- Введення виразу -->
+            <Entry x:Name="InputEntry"
+                   FontSize="52"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="End"
+                   Completed="InputEntry_OnCompleted"/>
+
+            <!-- Вираз після обробки -->
+            <Label x:Name="ExpressionLabel"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="End"
+                   IsVisible="False" />
+
+            <!-- Результат -->
+            <Label x:Name="ResultLabel"
+                   FontSize="48"
+                   TextColor="White"
+                   HorizontalTextAlignment="End"
+                   IsVisible="False" />
+        </VerticalStackLayout>
+        
+        <Grid Grid.Row="1" ColumnSpacing="2" RowSpacing="2">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Row="0" Grid.Column="0" x:Name="btnOB" Clicked="BtnOB_OnClicked" 
+                    Text="(" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="btnCB" Clicked="BtnCB_OnClicked"
+                    Text=")" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="2" x:Name="btnADD" Clicked="BtnADD_OnClicked"
+                    Text="+" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Grid.Row="0" Grid.Column="3" x:Name="btnDEL"
+                    Pressed="BtnDEL_OnPressed" Released="BtnDEL_OnReleased"
+                    Text="←" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Grid.Row="1" Grid.Column="0" x:Name="btn1" Clicked="Btn1_OnClicked"
+                    Text="1" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="btn2" Clicked="Btn2_OnClicked"
+                    Text="2" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Grid.Row="1" Grid.Column="2" x:Name="btn3" Text="3" 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="Btn3_OnClicked"/>
+            <Button Grid.Row="1" Grid.Column="3" x:Name="btnDIV" Text="÷" 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="BtnDIV_OnClicked"/>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="btn4" Text="4" 
+                Style="{StaticResource CalculatorButtonStyle}" Clicked="Btn4_OnClicked"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="btn5" Text="5" 
+                Style="{StaticResource CalculatorButtonStyle}" Clicked="Btn5_OnClicked"/>
+            <Button Grid.Row="2" Grid.Column="2" x:Name="btn6" Text="6" 
+             Style="{StaticResource CalculatorButtonStyle}" Clicked="Btn6_OnClicked"/>
+            <Button Grid.Row="2" Grid.Column="3" x:Name="btnMUL" Text="×" 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="BtnMUL_OnClicked"/>
+            <Button Grid.Row="3" Grid.Column="0" x:Name="btn7" Text="7" 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="Btn7_OnClicked"/>
+            <Button Grid.Row="3" Grid.Column="1" x:Name="btn8" Text="8" 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="Btn8_OnClicked"/>
+            <Button Grid.Row="3" Grid.Column="2" x:Name="btn9" Text="9" 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="Btn9_OnClicked"/>
+            <Button Grid.Row="3" Grid.Column="3" x:Name="btnMINUS" Text="-" 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="BtnMINUS_OnClicked"/>
+            <Button Grid.Row="4" Grid.Column="0" x:Name="btn0" Text="0" 
+                    Style="{StaticResource CalculatorButtonStyle}" Grid.ColumnSpan="2" Clicked="Btn0_OnClicked"/>
+            <!-- <Button Grid.Row="4" Grid.Column="1" Text="" Style="{StaticResource CalculatorButtonStyle}"/> -->
+            <Button Grid.Row="4" Grid.Column="2" x:Name="btnDOT" Text="." 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="BtnDOT_OnClicked"/>
+            <Button Grid.Row="4" Grid.Column="3" x:Name="btnEQUAL" Text="=" 
+                    Style="{StaticResource CalculatorButtonStyle}" Clicked="InputEntry_OnCompleted"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.RowDefinitions="8*,2*" x:Name="HistoryPanel"
+              IsVisible="False"
+              BackgroundColor="#222"
+              Padding="10"
+              VerticalOptions="FillAndExpand">
+            <ScrollView Grid.Row="0" Padding="10,0,10,5">
+                <StackLayout x:Name="HistoryStack" Spacing="10"/>
+            </ScrollView>
+            <Button Text="🗑️" Grid.Row="1" HorizontalOptions="End" BackgroundColor="Transparent"
+                    Clicked="ClearHistoryButtonClicked"/>
+        </Grid>
+    </Grid>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="🕦" 
+                     Clicked="OnHistoryButtonClicked"/>
+    </ContentPage.ToolbarItems>
+
+</ContentPage>
