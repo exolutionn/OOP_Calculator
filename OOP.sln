@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{6254300B-CA28-4244-8E88-FFB3DFE56261}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorWPF", "CalculatorWPF\CalculatorWPF.csproj", "{ACDE3FBE-42A9-4113-AF3F-1B305B2DEA92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperaturConverter", "TemperaturConverter\TemperaturConverter.csproj", "{B76110B7-FAF1-4274-8C27-7A62973FF005}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		{6254300B-CA28-4244-8E88-FFB3DFE56261}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6254300B-CA28-4244-8E88-FFB3DFE56261}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6254300B-CA28-4244-8E88-FFB3DFE56261}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACDE3FBE-42A9-4113-AF3F-1B305B2DEA92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACDE3FBE-42A9-4113-AF3F-1B305B2DEA92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACDE3FBE-42A9-4113-AF3F-1B305B2DEA92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACDE3FBE-42A9-4113-AF3F-1B305B2DEA92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B76110B7-FAF1-4274-8C27-7A62973FF005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B76110B7-FAF1-4274-8C27-7A62973FF005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B76110B7-FAF1-4274-8C27-7A62973FF005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B76110B7-FAF1-4274-8C27-7A62973FF005}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

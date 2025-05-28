@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TemperaturConverter.MainPage">
+    
+    <VerticalStackLayout>
+        <Entry x:Name="ConverterEntry" Placeholder="Entry temperature in Celsius" Completed="ConverterEntry_OnCompleted"/>    
+        
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <RadioButton Content="Kelvin" Value="K"
+                         CheckedChanged="RadioButton_OnCheckedChanged"/>
+            <RadioButton Content="Fahrenheit" Value="F"
+                         CheckedChanged="RadioButton_OnCheckedChanged"/>
+        </HorizontalStackLayout>
+        
+        <VerticalStackLayout>
+            <Label Text="Converted temperature"/>
+            <Label x:Name="ConverterOutput" 
+                Text=""/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+    
+
+</ContentPage>
