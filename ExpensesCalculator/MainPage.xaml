@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpensesCalculator.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15">
+
+            <Label Text="Кількість осіб" />
+            <Entry x:Name="PersonsEntry" Keyboard="Numeric" Placeholder="Введіть кількість осіб" />
+
+            <Label Text="Відстань (км)" />
+            <Entry x:Name="DistanceEntry" Keyboard="Numeric" Placeholder="Введіть відстань" />
+
+            <Label Text="Витрати палива (грн/л)" />
+            <Entry x:Name="FuelCostEntry" Keyboard="Numeric" Placeholder="Ціна палива" />
+
+            <Label Text="Витрата палива (л/100км)" />
+            <Entry x:Name="FuelConsumptionEntry" Keyboard="Numeric" Placeholder="Витрата палива на 100 км" />
+
+            <Label Text="Витрати на проживання (грн на добу на особу)" />
+            <Entry x:Name="AccommodationCostEntry" Keyboard="Numeric" Placeholder="Вартість проживання" />
+
+            <Label Text="Кількість днів проживання" />
+            <Entry x:Name="NightsEntry" Keyboard="Numeric" Placeholder="Кількість днів" />
+
+            <Button Text="Розрахувати" Clicked="CalculateButton_Clicked" />
+
+            <Label x:Name="ResultLabel" FontAttributes="Bold" FontSize="18" TextColor="DarkBlue" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

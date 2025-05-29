@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperaturConverter", "Temp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo", "ToDo\ToDo.csproj", "{68188BBD-ADEA-4E31-8948-AE5812B89AE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensesCalculator", "ExpensesCalculator\ExpensesCalculator.csproj", "{00BAA5F7-2099-463D-BCE3-D9BFA43DF6D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{68188BBD-ADEA-4E31-8948-AE5812B89AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68188BBD-ADEA-4E31-8948-AE5812B89AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68188BBD-ADEA-4E31-8948-AE5812B89AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00BAA5F7-2099-463D-BCE3-D9BFA43DF6D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00BAA5F7-2099-463D-BCE3-D9BFA43DF6D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00BAA5F7-2099-463D-BCE3-D9BFA43DF6D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00BAA5F7-2099-463D-BCE3-D9BFA43DF6D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
