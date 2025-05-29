@@ -1,0 +1,134 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ToDo.Models"
+             x:Class="ToDo.Views.TasksPage"
+             BackgroundColor="#1e1e1e">
+
+    <Grid RowDefinitions="Auto, *" Padding="10">
+
+        <!-- 1. Top control panel -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto" Padding="5" ColumnSpacing="10">
+            <Entry x:Name="TaskEntry"
+                   Placeholder="Task Name"
+                   Completed="TaskEntry_OnCompleted"
+                   Grid.Column="0"
+                   HeightRequest="40"
+                   BackgroundColor="White"
+                   TextColor="Black"/>
+
+            <Button x:Name="FiltersButton"
+                    Text="Filters"
+                    Clicked="FiltersButton_OnClicked"
+                    Grid.Column="1"
+                    HeightRequest="40"/>
+
+            <Button x:Name="RefreshButton"
+                    Text="Refresh"
+                    Clicked="RefreshButton_OnClicked"
+                    Grid.Column="2"
+                    HeightRequest="40"/>
+        </Grid>
+
+        <!-- 2. Scrollable list -->
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding FilteredItems}"
+                        BackgroundColor="Transparent">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:TodoItem">
+                    <Frame Margin="0,5"
+                           Padding="10"
+                           BorderColor="#444"
+                           CornerRadius="8"
+                           BackgroundColor="#2e2e2e">
+
+                        <Grid ColumnDefinitions="Auto,*,Auto"
+                              VerticalOptions="Center"
+                              RowSpacing="5">
+
+                            <CheckBox IsChecked="{Binding Done}"
+                                      Grid.Column="0"
+                                      VerticalOptions="Center"/>
+
+                            <Button Text="{Binding Name}"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                    Clicked="ItemButton_OnClicked"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"/>
+
+                            <Picker SelectedItem="{Binding StatusIcon}"
+                                    Grid.Column="2"
+                                    HorizontalOptions="End"
+                                    SelectedIndexChanged="Picker_OnSelectedIndexChanged">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>⚫</x:String>
+                                        <x:String>⚪</x:String>
+                                        <x:String>🟢</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- 3. Details panel -->
+        <StackLayout Grid.Row="1"
+                     x:Name="ItemDetailsFlexLayout"
+                     IsVisible="False"
+                     BackgroundColor="#222"
+                     Padding="10"
+                     BindingContext="{Binding ChosenItem}">
+            <FlexLayout Direction="Column"
+                        JustifyContent="SpaceBetween">
+                <VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <FlexLayout Direction="Row" 
+                                    JustifyContent="SpaceBetween"
+                                    AlignItems="Center">
+                            <Label Text="{Binding Id}"
+                                   TextColor="Gray"
+                                   FontSize="10"/>
+                            <Label Text="{Binding DateCreated}"
+                                   FontSize="10"
+                                   TextColor="Gray"/>
+                        </FlexLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Name}"
+                                           FontSize="32"/>
+                            <Label Text="{Binding StatusIcon}" VerticalTextAlignment="Center"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <ScrollView HeightRequest="200">
+                        <Label Text="{Binding Description}"
+                               FontSize="24"
+                               LineBreakMode="WordWrap"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Start"/>
+                    </ScrollView>
+                </VerticalStackLayout>
+                <FlexLayout Direction="Row">
+                    <Picker SelectedItem="{Binding StatusIcon}"
+                            HorizontalOptions="End"
+                            SelectedIndexChanged="Picker_OnSelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>⚫</x:String>
+                                <x:String>⚪</x:String>
+                                <x:String>🟢</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Button
+                            Clicked="DeleteButton_OnClicked"
+                            Text="🗑️"/>
+                    <Button
+                        Clicked="ButtonEdit_OnClicked"
+                        Text="✏️"/>
+                </FlexLayout>
+            </FlexLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

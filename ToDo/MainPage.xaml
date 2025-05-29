@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDo.MainPage">
+
+    
+    <ScrollView>
+        <StackLayout>
+            <Entry x:Name="Name" Placeholder="Entry task name"/>
+            <Entry x:Name="Description" Placeholder="Entry task description"/>
+            <Button x:Name="AddNewTaskButton" Clicked="AddNewTaskButton_OnClicked"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
